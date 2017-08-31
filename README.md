@@ -1,6 +1,9 @@
-# mruby-imgtype   [![Build Status](https://travis-ci.org/kjunichi/mruby-imgtype.svg?branch=master)](https://travis-ci.org/kjunichi/mruby-imgtype)
+# mruby-imgtype 
+
 Imgtype class
+
 ## install by mrbgems
+
 - add conf.gem line to `build_config.rb`
 
 ```ruby
@@ -12,14 +15,25 @@ MRuby::Build.new do |conf|
 end
 ```
 ## example
+
+You need to install mruby-webcam.
+
 ```ruby
-p Imgtype.hi
-#=> "hi!!"
-t = Imgtype.new "hello"
-p t.hello
-#=> "hello"
-p t.bye
-#=> "hello bye"
+Imgtype.init
+
+cam = Webcam.new
+cam.setFmt "ppm"
+cam.capture {|img|
+  Imgtype.imgtype img
+}
+while true
+    cam.snap
+    Sleep::usleep(1000)
+    if Imgtype.get_key == "ESC" then
+        break
+    end
+end
+Imgtype.close
 ```
 
 ## License
