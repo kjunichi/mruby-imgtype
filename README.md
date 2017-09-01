@@ -1,4 +1,5 @@
-# mruby-imgtype 
+# mruby-imgtype [![Build status](https://ci.appveyor.com/api/projects/status/0oopa04ylvw4tj2p?svg=true)](https://ci.appveyor.com/project/kjunichi/mruby-imgtype)
+
 
 Imgtype class
 
